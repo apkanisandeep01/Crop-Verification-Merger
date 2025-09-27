@@ -7,8 +7,14 @@ st.set_page_config(page_title="Crop Data Verification", layout="wide")
 st.title("🌾 Crop Data Verification App")
 
 st.warning("Always ensure to upload the Original files that are directly Downloaded from the site")
-# st.markdown("Upload crop booking Excel files and MAO verification file to generate a merged report.")
 
+# Added Help Document 
+help_url = "https://github.com/apkanisandeep01/Crop-Verification-Merger/blob/d9bfaa23c14735157eec7e3c3cf9c94d35853a20/Help%20Document.pdf"
+
+st.markdown(
+    f'<a href="{help_url}" target="_blank"><button style="padding:10px 20px; font-size:16px;">📘 Open Help Document</button></a>',
+    unsafe_allow_html=True
+)
 st.subheader("Upload Crop Booking Excel Files")
 # Upload multiple crop booking files
 uploaded_files = st.file_uploader("Upload here", type=None, accept_multiple_files=True)
