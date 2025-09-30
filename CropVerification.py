@@ -64,7 +64,7 @@ if uploaded_files and mao_file:
         # Select required columns
         verification_df = verification_df[[
             'Division', 'Mandal_x', 'VIllage',
-            'Pattadar Passbook Number', 'Farmer Name', 'Mobile Number',
+            'Pattadar Passbook Number', 'Farmer Name', 'Mobile Number','BaseSurveyNo',
             'Survey Number', 'Survey Extent',
             'CropName', 'CropVarietyName', 'CropSown_Acres',
             'CropSown_Guntas', 'SowingWeek'
@@ -73,7 +73,7 @@ if uploaded_files and mao_file:
         # Rename columns
         verification_df.columns = [
             'Division', 'Mandal', 'Village',
-            'PPB No', 'FarmerName', 'ContactNumber',
+            'PPB No', 'FarmerName', 'ContactNumber','Base Survey No',
             'Sy No', 'Survey Extent',
             'CropName', 'CropVariety', 'CropSown_Acres',
             'CropSown_Guntas', 'SowingWeek'
