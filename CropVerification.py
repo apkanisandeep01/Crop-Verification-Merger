@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import io
+import xlrd
 from datetime import datetime
 
 st.set_page_config(page_title="Crop Data Verification", layout="wide")
