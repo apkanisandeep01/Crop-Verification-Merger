@@ -13,28 +13,14 @@ st.warning("Always ensure to upload the Original files that are directly Downloa
 help_url = "https://github.com/apkanisandeep01/Crop-Verification-Merger/blob/d9bfaa23c14735157eec7e3c3cf9c94d35853a20/Help%20Document.pdf"
 
 st.markdown(
-    f'<a href="{help_url}" target="_blank"><button style="padding:10px 20px; font-size:16px;">**Open Help Document**</button></a>',
+    f'<a href="{help_url}" target="_blank"><button style="padding:10px 20px; font-size:16px;">📘 Open Help Document</button></a>',
     unsafe_allow_html=True
 )
-st.markdown(
-    """
-    <div style='text-align: center;'>
-        <p style='font-size: 20px; font-weight: bold;'>
-           This tool automatically collects the crop booking details entered in the Excel sheet 
-           and matches them with the list of farmers provided by the MAO/ADA/DAO. The matched data can then be downloaded as an Excel file.
-        </p>
-    </div>
-    """, 
-    unsafe_allow_html=True
-)
-
-
-
 st.subheader("Upload Crop Booking Excel Files")
 # Upload multiple crop booking files
 uploaded_files = st.file_uploader("Upload here", type=None, accept_multiple_files=True)
 st.divider()
-st.subheader("Upload Crop Verification (CBV) list of Excel File")
+st.subheader("Upload MAO Verification list of Excel File")
 # Upload MAO verification file
 mao_file = st.file_uploader("Upload here", type=None, accept_multiple_files=False)
 
@@ -131,14 +117,3 @@ if uploaded_files and mao_file:
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         )
 st.info("Feel free to use this tool as much as you need. We respect your privacy, so none of the data you enter here is ever stored.")
-st.markdown(
-    """
-    <div style='text-align: center;'>
-        <p style='font-size: 20px; font-weight: bold;'>
-            Made with ❤️ from Sandeep Kumar 
-            #WorkSMart #WorkEfficient
-        </p>
-    </div>
-    """, 
-    unsafe_allow_html=True
-)
