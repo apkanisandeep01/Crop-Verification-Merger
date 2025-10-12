@@ -16,17 +16,29 @@ st.markdown(
     f'<a href="{help_url}" target="_blank"><button style="padding:10px 20px; font-size:16px;">**Open Help Document**</button></a>',
     unsafe_allow_html=True
 )
+
+
 st.markdown(
     """
-    <div style='text-align: center;'>
-        <p style='font-size: 20px; font-weight: bold;'>
-           This tool automatically collects the crop booking details entered in the Excel sheet 
-           and matches them with the list of farmers provided by the MAO/ADA/DAO. The matched data can then be downloaded as an Excel file.
+    <div style="
+        text-align: left;
+        background-color: #000000;
+        color: #f0f0f0;
+        padding: 20px;
+        border-radius: 10px;
+        line-height: 1.6;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    ">
+        <p style='font-size: 18px; font-weight: 600; margin: 0;'>
+            This tool automatically collects the crop booking details entered in the Excel sheet 
+            and matches them with the list of farmers provided by the MAO/ADA/DAO. 
+            The matched data can then be downloaded as an Excel file.
         </p>
     </div>
     """, 
     unsafe_allow_html=True
 )
+
 
 
 
