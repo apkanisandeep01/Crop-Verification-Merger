@@ -49,7 +49,7 @@ if uploaded_files and mao_file:
         try:
             mao_df = pd.read_excel(mao_file, header=2)
             mao_df.dropna(axis=1, inplace=True)
-             st.dataframe(mao_df.head(5), use_container_width=True)
+            st.dataframe(mao_df.head(5), use_container_width=True)
         except Exception as e:
             st.error(f"Error reading MAO file: {e}")
             st.stop()
