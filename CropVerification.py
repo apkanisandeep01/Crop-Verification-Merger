@@ -45,7 +45,7 @@ if uploaded_files and mao_file:
                          'SurveyExtent', 'CropName', 'CropVarietyName',
                          'CropSown_Acres','CropSown_Guntas', 'SowingWeek']
         crop_df = crop_df[[c for c in required_cols if c in crop_df.columns]]
-
+        st.divider()
         # Read MAO file
         try:
             mao_df = pd.read_excel(mao_file, header=2)
