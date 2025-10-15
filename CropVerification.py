@@ -37,7 +37,7 @@ if uploaded_files and mao_file:
 
     if dfs:
         crop_df = pd.concat(dfs, ignore_index=True)
-
+        st.dataframe(crop_df.head(5), use_container_width=True)
         # Required columns (only keep if they exist)
         required_cols = ['Season', 'Mandal', 'Village', 'PPBNO', 'FarmerName',
                          'FatherName', 'MobileNo', 'BaseSurveyNo', 'SurveyNo',
@@ -49,35 +49,38 @@ if uploaded_files and mao_file:
         try:
             mao_df = pd.read_excel(mao_file, header=2)
             mao_df.dropna(axis=1, inplace=True)
+             st.dataframe(mao_df.head(5), use_container_width=True)
         except Exception as e:
             st.error(f"Error reading MAO file: {e}")
             st.stop()
-
-        # Merge both dataframes
-        verification_df = mao_df.merge(
-            crop_df,
-            left_on=['VIllage', 'Survey Number'],
-            right_on=['Village', 'SurveyNo'],
-            how='inner'
-        )
-
-        # Select required columns
-        verification_df = verification_df[[
-            'Division', 'Mandal_x', 'VIllage',
-            'Pattadar Passbook Number', 'Farmer Name', 'Mobile Number','BaseSurveyNo',
-            'Survey Number', 'Survey Extent',
-            'CropName', 'CropVarietyName', 'CropSown_Acres',
-            'CropSown_Guntas', 'SowingWeek'
-        ]]
-
-        # Rename columns
-        verification_df.columns = [
-            'Division', 'Mandal', 'Village',
-            'PPB No', 'FarmerName', 'ContactNumber','Base Survey No',
-            'Sy No', 'Survey Extent',
-            'CropName', 'CropVariety', 'CropSown_Acres',
-            'CropSown_Guntas', 'SowingWeek'
-        ]
+        try:
+            # Merge both dataframes
+            verification_df = mao_df.merge(
+                crop_df,
+                left_on=['VIllage', 'Survey Number'],
+                right_on=['Village', 'SurveyNo'],
+                how='inner'
+            )
+    
+            # Select required columns
+            verification_df = verification_df[[
+                'Division', 'Mandal_x', 'VIllage',
+                'Pattadar Passbook Number', 'Farmer Name', 'Mobile Number','BaseSurveyNo',
+                'Survey Number', 'Survey Extent',
+                'CropName', 'CropVarietyName', 'CropSown_Acres',
+                'CropSown_Guntas', 'SowingWeek'
+            ]]
+    
+            # Rename columns
+            verification_df.columns = [
+                'Division', 'Mandal', 'Village',
+                'PPB No', 'FarmerName', 'ContactNumber','Base Survey No',
+                'Sy No', 'Survey Extent',
+                'CropName', 'CropVariety', 'CropSown_Acres',
+                'CropSown_Guntas', 'SowingWeek'
+            ]
+        except Exception as e:
+            st.error(f"Error reading MAO file: {e}")
 
         # Show preview in app
         st.subheader("✅ Preview of Merged Data")
