@@ -67,7 +67,7 @@ if uploaded_files and mao_file:
             # Select required columns
             verification_df = verification_df[[
                 'Division', 'Mandal_x', 'VIllage',
-                'Pattadar Passbook Number', 'Farmer Name', 'Mobile Number','BaseSurveyNo',
+                'Pattadar Passbook Number', 'Farmer Name', 'MobileNo','BaseSurveyNo',
                 'Survey Number', 'Survey Extent',
                 'CropName', 'CropVarietyName', 'CropSown_Acres',
                 'CropSown_Guntas', 'SowingWeek'
